@@ -12,22 +12,20 @@ Input: prices = [7,6,4,3,1]
 Output: 0
 Explanation: In this case, no transactions are done and the max profit = 0.'''
 
-def maxProfit(prices):
-    """
+# def maxProfit(prices):
+"""
     :type prices: List[int]
     :rtype: int
     """
-    profit=0
-    min=prices[0]
-    for i in prices:
-        if i<min:
-            min=i
-        elif i>min and profit<(i-min):
-            profit=i-min
-    return profit
+    # profit=0
+    # min=prices[0]
+    # for i in prices:
+    #     if i<min:
+    #         min=i
+    #     elif i>min and profit<(i-min):
+    #         profit=i-min
+    # return profit
 
-print(maxProfit([7,1,5,3,6,4]))
-print(maxProfit([7,6,4,3,1]))
 
 ######## OR #########
     # min = prices[0]
@@ -41,3 +39,17 @@ print(maxProfit([7,6,4,3,1]))
     #         if max - min > profit:
     #             profit = max - min
     # return profit
+
+def maxProfit(prices):
+    profit=0
+    min=prices[0]
+    for i in prices:
+        if i<min:
+            min=i
+        if profit<i-min:
+            profit=i-min
+    return profit
+
+print(maxProfit([7,1,5,3,6,4]))
+print(maxProfit([7,6,4,3,1]))
+
