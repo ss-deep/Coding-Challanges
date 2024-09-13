@@ -1,0 +1,13 @@
+def mergeSortedArray(num1,m,num2,n):
+    p1=m-1
+    p2=n-1
+
+    for p in range(m+n-1,-1,-1):
+        if p2<0:
+            break
+        elif p1>=0 and num1[p1]<=num2[p2]:
+            num1[p]=num2[p2]
+            p2-=1
+        else:
+            num1[p]=num1[p1]
+            p1-=1
