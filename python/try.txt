@@ -1,13 +1,14 @@
-def mergeSortedArray(num1,m,num2,n):
-    p1=m-1
-    p2=n-1
+def isHappy(n):
+    def get_sum(num):
+        total=0
+        while num>0:
+            total+=num%10 ** 2
+            num=num//10
+        return total
 
-    for p in range(m+n-1,-1,-1):
-        if p2<0:
-            break
-        elif p1>=0 and num1[p1]<=num2[p2]:
-            num1[p]=num2[p2]
-            p2-=1
-        else:
-            num1[p]=num1[p1]
-            p1-=1
+        slow_runner=n
+        fast_runner=get_sum(n)
+        while fast_runner!=1 and slow_runner!=fast_runner:
+            slow_runner=get_sum(slow_runner)
+            fast_runner=get_sum(get_sum(fast_runner))
+        return fast_runner==1

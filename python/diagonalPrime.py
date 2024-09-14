@@ -17,24 +17,22 @@ Input: nums = [[1,2,3],[5,17,7],[9,11,10]]
 Output: 17
 Explanation: The numbers 1, 3, 9, 10, and 17 are all present on at least one of the diagonals. 17 is the largest prime, so we return'''
 
-def diagonalPrime(nums):
-        def is_prime(num):
-            if num <= 1:
+def diagonalPrime(num):
+    def is_prime(num):
+        if num<=1:
+            return False
+        for i in range(2, int(num ** 0.5) + 1):
+            if num % i == 0:
                 return False
-            for i in range(2, int(num ** 0.5) + 1):
-                if num % i == 0:
-                    return False
-            return True
-
-        largest_prime = 0
-        n = len(nums)
-        for i in range(n):
-            if is_prime(nums[i][i]):
-                largest_prime = max(largest_prime, nums[i][i])
-
-            if is_prime(nums[i][n-i-1]):
-                largest_prime = max(largest_prime, nums[i][n-i-1])
-                
-        return largest_prime
+        return True
+    
+    max_prime = 0
+    n=len(num)
+    for i in range(len(num)):
+        if is_prime(num[i][i]):
+            max_prime=max(max_prime, num[i][i])
+        if is_prime(num[i][n-i-1]):
+            max_prime=max(max_prime, num[i][n-i-1])
+    return max_prime
 
 print(diagonalPrime([[1,2,3],[5,17,7],[9,11,10]]))

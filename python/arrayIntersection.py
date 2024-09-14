@@ -16,8 +16,8 @@ def arrayIntersection(num1,num2):
     #-----------------OR----------------
     # return list(set(num1) & set(num2))
     result=[]
-    set1=set(num1)
-    set2=set(num2)
+    # set1=set(num1)
+    # set2=set(num2)
     map={}
     for num in num1:
         map[num]=map.get(num,0)+1
